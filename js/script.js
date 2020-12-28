@@ -244,4 +244,36 @@ $(function () {
 
 
 });
+
+
+// modal close
+
+const modalCloseImg = document.querySelectorAll('.modal__close-img--white');
+
+
+
+const data = {
+    first: 'img/modal-close.svg',
+    second: 'img/modal-close1.svg'
+};
+
+
+
+
+const chooseCross = () => {
+    if (document.body.clientWidth < 766) {
+        modalCloseImg.forEach(cross => {
+            cross.src = data.second;
+            cross.previousSibling.setAttribute('srcset', data.second);
+        });
+    } else {
+        modalCloseImg.forEach(cross => {
+            cross.src = data.first;
+            cross.previousSibling.setAttribute('srcset', data.first);
+        });
+    }
+};
+chooseCross();
+
+setInterval(chooseCross, 1000);
 ;
